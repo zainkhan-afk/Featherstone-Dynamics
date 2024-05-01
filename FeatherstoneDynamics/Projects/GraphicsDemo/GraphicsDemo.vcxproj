@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b5ac85b3-6647-4312-a40f-8e3a31241733}</ProjectGuid>
+    <ProjectGuid>{6396be66-2cba-403f-8864-836086d2474f}</ProjectGuid>
     <RootNamespace>GraphicsDemo</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -70,20 +70,20 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)</OutDir>
+    <IntDir />
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)</OutDir>
     <IntDir />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)</OutDir>
     <IntDir />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Builds\$(ProjectName)\$(Platform)\$(Configuration)</OutDir>
     <IntDir />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -92,19 +92,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\Include;$(SolutionDir)externalLibs\Cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)externalLibs\Cinder\lib\msw;$(SolutionDir)externalLibs\Cinder\lib\msw\$(Platform)\$(Configuration)\$(PlatformToolset);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>copy /Y "$(SolutionDir)externalLibs\SFML-2.6.1\bin\sfml-graphics-d-2.dll" "$(OutDir)\sfml-graphics-d-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-window-d-2.dll" "$(OutDir)\sfml-window-d-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-system-d-2.dll" "$(OutDir)\sfml-system-d-2.dll"</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -114,21 +111,17 @@ copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-system-d-2.dll" "$(OutD
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\Include;$(SolutionDir)externalLibs\Cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)externalLibs\Cinder\lib\msw;$(SolutionDir)externalLibs\Cinder\lib\msw\$(Platform)\$(Configuration)\$(PlatformToolset);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-graphics-2.dll" "$(OutDir)\sfml-graphics-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-window-2.dll" "$(OutDir)\sfml-window-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-system-2.dll" "$(OutDir)\sfml-system-2.dll"</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -136,19 +129,16 @@ copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-system-2.dll" "$(OutDir
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\Include;$(SolutionDir)externalLibs\Cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)externalLibs\Cinder\lib\msw;$(SolutionDir)externalLibs\Cinder\lib\msw\$(Platform)\$(Configuration)\$(PlatformToolset);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>copy /Y "$(SolutionDir)externalLibs\SFML-2.6.1\bin\sfml-graphics-d-2.dll" "$(OutDir)\sfml-graphics-d-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-window-d-2.dll" "$(OutDir)\sfml-window-d-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-system-d-2.dll" "$(OutDir)\sfml-system-d-2.dll"</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -158,24 +148,35 @@ copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-system-d-2.dll" "$(OutD
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\Include;$(SolutionDir)externalLibs\Cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\zain_dev\thesis\Featherstone-Dynamics\FeatherstoneDynamics\externalLibs\SFML-2.6.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)externalLibs\Cinder\lib\msw;$(SolutionDir)externalLibs\Cinder\lib\msw\$(Platform)\$(Configuration)\$(PlatformToolset);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-graphics-2.dll" "$(OutDir)\sfml-graphics-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-window-2.dll" "$(OutDir)\sfml-window-2.dll"
-copy /Y "$(SolutionDir)\externalLibs\SFML-2.6.1\bin\sfml-system-2.dll" "$(OutDir)\sfml-system-2.dll"</Command>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Source\src\GraphicsDemo\main.cpp" />
+    <ClCompile Include="..\..\Source\src\GraphicsDemo\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Source\shaders\fragment.glsl" />
+    <None Include="..\..\Source\shaders\vertex.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\include\GraphicsDemo\Resources.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GraphicsDemo.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)externalLibs\Cinder\include;$(SolutionDir)\Source\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)externalLibs\Cinder\include;$(SolutionDir)\Source\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)externalLibs\Cinder\include;$(SolutionDir)\Source\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)externalLibs\Cinder\include;$(SolutionDir)\Source\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
