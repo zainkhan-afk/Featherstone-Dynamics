@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsDemo", "Projects\GraphicsDemo\GraphicsDemo.vcxproj", "{6396BE66-2CBA-403F-8864-836086D2474F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GravityCube", "Projects\GravityCube\GravityCube.vcxproj", "{F318E57B-E782-4A0F-BAD0-7B475D246D92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{6396BE66-2CBA-403F-8864-836086D2474F}.Release|x64.Build.0 = Release|x64
 		{6396BE66-2CBA-403F-8864-836086D2474F}.Release|x86.ActiveCfg = Release|Win32
 		{6396BE66-2CBA-403F-8864-836086D2474F}.Release|x86.Build.0 = Release|Win32
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Debug|x64.ActiveCfg = Debug|x64
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Debug|x64.Build.0 = Debug|x64
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Debug|x86.ActiveCfg = Debug|Win32
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Debug|x86.Build.0 = Debug|Win32
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Release|x64.ActiveCfg = Release|x64
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Release|x64.Build.0 = Release|x64
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Release|x86.ActiveCfg = Release|Win32
+		{F318E57B-E782-4A0F-BAD0-7B475D246D92}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
