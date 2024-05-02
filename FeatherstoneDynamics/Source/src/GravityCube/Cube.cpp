@@ -2,7 +2,7 @@
 #include <math.h>
 MyCube::MyCube(const ci::gl::GlslProgRef& mGlsl, const ci::vec3& _pos, const ci::vec3& _vel, float _mass) : position(_pos), veloctiy(_vel), mass(_mass)
 {
-	objectRef = ci::gl::Batch::create(ci::geom::Cube().size(ci::vec3(1, 1, 1)), mGlsl);
+	objectRef = ci::gl::Batch::create(ci::geom::WireCube().size(ci::vec3(1, 1, 1)).subdivisions(4), mGlsl);
 }
 
 MyCube::~MyCube()

@@ -15,7 +15,7 @@ void MyPlane::Draw()
 {
 	ci::gl::pushModelMatrix();
 	ci::gl::translate(position);
-	ci::gl::color(ci::ColorA(1.0f, 1.0f, 1.0f, 1.0f));
+	ci::gl::color(ci::ColorA(1.0f, 1.0f, 0.0f, 1.0f));
 	objectRef->draw();
 	ci::gl::popModelMatrix();
 }

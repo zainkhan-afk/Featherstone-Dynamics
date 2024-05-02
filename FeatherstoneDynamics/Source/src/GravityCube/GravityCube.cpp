@@ -29,6 +29,7 @@ public:
 	MyCube*				myCube;
 	MyPlane*			myPlane;
 	Physics				phy;
+	double				ang = 0;
 
 };
 
@@ -52,7 +53,7 @@ void RotatingCubeApp::setup()
 void RotatingCubeApp::resize()
 {
 	mCam.setPerspective(60, getWindowAspectRatio(), 1, 1000);
-	mCam.lookAt(vec3(7, 7, 3), vec3(0), vec3(0, 0, 1));
+	mCam.lookAt(vec3(7, 7, 5), vec3(0), vec3(0, 0, 1));
 	gl::setMatrices(mCam);
 }
 
@@ -68,6 +69,8 @@ void RotatingCubeApp::draw()
 
 	myCube->Draw();
 	myPlane->Draw();
+
+	ang += 0.01;
 }
 
 void RotatingCubeApp::keyDown(KeyEvent event)
